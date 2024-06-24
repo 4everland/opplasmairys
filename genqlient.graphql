@@ -1,0 +1,21 @@
+query QueryTx($address: [String!]!,  $key: String!) {
+  transactions(
+    owners: $address,
+    tags: [
+      {
+        name: "OP-PLASMA-KEY",
+        values: [$key]
+      }
+    ]
+  ) {
+    edges {
+      node {
+        id
+        tags {
+          name
+          value
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+type Query {
+    transactions(owners: [String!]!, tags: [TagInput!]!): Edges!
+}
+
+type Transaction {
+    id: ID!
+    tags: [Tag!]!
+}
+
+type Tag {
+    name: String!
+    value: String!
+}
+
+type Edges {
+    edges: [Node!]!
+}
+type Node {
+    node: Transaction!
+}
+
+
+input TagInput {
+    name: String!
+    values: [String!]!
+}
+
+
+
